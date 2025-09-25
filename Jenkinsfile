@@ -41,12 +41,6 @@ pipeline {
       steps {
         script {
           gv.buildImage()
-        }
-      }
-    }
-    stage("deploy") {
-      steps {
-        script {
           gv.deployApp()
         }
       }
