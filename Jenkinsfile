@@ -27,16 +27,5 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-      
-    }
-    failure {
-      
-    }
-    success {
-      
-    }
-  }
-  
+
 }
