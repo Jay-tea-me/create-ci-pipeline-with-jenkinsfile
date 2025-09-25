@@ -1,14 +1,19 @@
 def buildApp() {
     echo 'building the app... :)'
+    sh 'mvn package'
 }
 
-def testApp() {
-    echo 'testing the app... :)'
+def buildImage() {
+    echo "building the docker image ..."
+    withCredentials([usernamePassword(credentialsId: 'e91a009b-9542-4577-9fa9-5753e021693f', passwordVariable: "PASS", usernameVariable: "USER")]) {
+        sh 'docker build -t jaybee55/demo-app:jma-2.0 .'
+        sh "echo $PASS | docker login -u $USER --password-stdin"
+        sh 'docker push jaybee55/demo-app:jma-2.0'
+    }
 }
 
 def deployApp() {
-    echo 'deploying the app... :)'
-    echo "deploying version ${params.VERSION}"
-    echo "deploying to ${ENV}"
+    echo "deploying the application"
 }
+
 return this //import into jenkins file
