@@ -9,5 +9,6 @@ def testApp() {
 def deployApp() {
     echo 'deploying the app... :)'
     echo "deploying version ${params.VERSION}"
+    echo "deploying to ${ENV}"
 }
 return this //import into jenkins file
