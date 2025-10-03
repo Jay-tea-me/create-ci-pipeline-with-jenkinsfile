@@ -24,11 +24,6 @@ pipeline {
       }
     }
     stage("build") {
-      when {
-        expression {
-          BRANCH_NAME == "main"
-        }
-      }
       steps {
         script {
           buildJar()
@@ -36,11 +31,6 @@ pipeline {
       }
     }
     stage("deploy") {
-       when {
-        expression {
-          BRANCH_NAME == "main"
-        }
-      }
       steps {
         script {
           buildImage "jaybee55/demo-app:jma-3.0"
