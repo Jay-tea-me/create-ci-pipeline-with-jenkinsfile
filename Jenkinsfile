@@ -43,7 +43,7 @@ pipeline {
       }
       steps {
         script {
-          buildImage()
+          buildImage "jaybee55/demo-app:jma-3.0"
           gv.deployApp()
         }
       }
