@@ -23,17 +23,25 @@ pipeline {
         }
       }
     }
-    stage("build") {
+    stage("build jar") {
       steps {
         script {
           buildJar()
         }
       }
     }
-    stage("deploy") {
+    stage("build and push image") {
       steps {
         script {
           buildImage "jaybee55/demo-app:jma-3.0"
+          dockerLogin()
+          dockerPush "jaybee55/demo-app:jma-3.0"
+        }
+      }
+    }
+    stage("deploy") {
+      steps {
+        script {
           gv.deployApp()
         }
       }
