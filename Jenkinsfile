@@ -1,4 +1,8 @@
-@Library('jenkins-shared-library')
+library identifier: "jenkins-shared-library@master", retriever: modernSCM([
+  @class: "GitSCMSource",
+  remote: "https://gitlab.com/justea1/devops/jenkins/jenkins-shared-library.git",
+  credentials: "jenkins-gitlab"
+])
 
 def gv 
 
