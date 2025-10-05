@@ -17,14 +17,14 @@ pipeline {
       steps {
         script {
           echo "testing the app"
-          echo "Executing pipeline for branch  $GITHUB_REF_NAME	"
+          echo "Executing pipeline for branch  $BRANCH_NAME	"
         }
       }
     }
     stage("build") {
       when {
         expression {
-          GITHUB_REF_NAME == "main"
+          BRANCH_NAME == "main"
         }
       }
       steps {
@@ -36,7 +36,7 @@ pipeline {
     stage("deploy") {
        when {
         expression {
-          GITHUB_REF_NAME == "main"
+          BRANCH_NAME == "main"
         }
       }
       steps {
