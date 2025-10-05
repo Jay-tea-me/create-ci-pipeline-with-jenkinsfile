@@ -1,4 +1,5 @@
 def gv 
+
 pipeline {
   agent any
   tools {
@@ -16,7 +17,7 @@ pipeline {
       steps {
         script {
           echo "testing the app"
-          echo "Executing pipeline for branch $GITHUB_REF_NAME	"
+          echo "Executing pipeline for branch  $GITHUB_REF_NAME	"
         }
       }
     }
