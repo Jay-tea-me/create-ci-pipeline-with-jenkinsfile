@@ -69,7 +69,7 @@ pipeline {
     stage("commit version update") {
       steps {
         script {
-          withCredentials([script.usernamePassword(credentialsId: '95b99489-575d-4f46-a907-cad03fee42ed', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+          withCredentials([usernamePassword(credentialsId: '95b99489-575d-4f46-a907-cad03fee42ed', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
             sh 'git config --global user.email "jenkins@example.com"'
             sh 'git config --global user.name "jenkins"'
 
